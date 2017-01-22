@@ -1,0 +1,55 @@
+body {
+	font-family: 'VT323', monospace;
+}
+
+.jumbotron {
+  background-image: url('img/grid.jpg');
+  background-size: cover;
+  padding-bottom: 50%;
+}
+
+.jumbotron h1 {
+    font-size: 100px;
+}
+
+textarea {
+	resize: none;
+	height: auto;
+	min-height: 400px;
+}
+
+mark {
+    background-color: blue;
+    color: black;
+}
+
+.highlight {
+	color: white;
+}
+
+.text-container {
+    position: relative;
+    height: 75vh;
+}
+
+#title {
+    position: absolute;
+    margin: 0;
+    top: 0px;
+    left: 40px;
+}
+
+.pixel {
+    background-color: #e83c7a;
+}
+
+h2 {
+    font-size: 4em;
+    line-height: 1.5em;
+}
+
+.bottom-align {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}

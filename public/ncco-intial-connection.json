@@ -1,0 +1,20 @@
+[{
+  "action": "talk",
+  "text": "Welcome."
+ },
+ {
+  "action": "connect",
+  "eventUrl": ["http://pixel-seanhackett.c9users.io/websocket"],
+  "timeout": "60",
+  "from": "12394490629",
+  "endpoint": [
+    {
+     "type": "websocket",
+     "uri": "ws://pixel-seanhackett.c9users.io:8081",
+     "content-type": "audio/l16;rate=16000"
+    }]
+ },
+ {
+  "action":"talk",
+  "text": "Ready."
+ }]
