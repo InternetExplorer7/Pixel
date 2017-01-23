@@ -32,7 +32,7 @@ app.post('/voice', (req, res) => {
     console.log("CALL FROM: ", req.body.From);
     
     if (config.BLACKLIST.has(req.body.From)) {
-      twiml.say('get the fuck outta here.');
+      twiml.say('Your number has been blacklisted.  Do not call again.');
       res.send(twiml.toString());
       return;
     }

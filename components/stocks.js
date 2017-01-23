@@ -1,6 +1,7 @@
+const config = require('../config');
 const wit = require('node-wit');
 const client = new wit.Wit({
-  accessToken: 'BXATQKJ5CH56BWR67XSQJ7URAFOCCLYW'
+  accessToken: config.witStocks
 });
 const request = require('request');
 const nexmo = require('../create-nexmo-app');

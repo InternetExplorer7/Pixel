@@ -5,7 +5,7 @@ const wit = require('node-wit');
 var natural = require('natural');
 const sayStocks = require('./components/stocks');
 const client = new wit.Wit({
-    accessToken: 'BXATQKJ5CH56BWR67XSQJ7URAFOCCLYW'
+    accessToken: config.witStocks
 });
 const Cleverbot = require('cleverbot-node');
 cleverbot = new Cleverbot();

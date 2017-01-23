@@ -1,13 +1,14 @@
+const config = require('../config');
 var request = require('request');
 const nexmo = require('../create-nexmo-app');
 const wit = require('node-wit');
 const weatherClient = new wit.Wit({
-    accessToken: 'LKDBLGBHED3PUT6SV4CKMFEKKG34CL2V'
+    accessToken: config.witWeather
 });
 var Forecast = require('forecast');
 var forecast = new Forecast({
     service: 'darksky',
-    key: 'c3a4215e44f44ce7243339cb63227af4',
+    key: config.forecast,
     units: 'fahrenheit',
     cache: false
 })
@@ -30,37 +31,6 @@ var say = function(text, cb) {
 
 var sum;
 
-// module.exports = function(inquiry) {
-//     weatherClient.message(inquiry, {})
-//         .then((response) => {
-//             if (response.confidence < 0.5) {
-//                 // return("What about the weather?");
-//             }
-//             else {
-//                 var url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + response.value + '&key=AIzaSyA1ALNX69MB3D4aBUtMviXIHg4MKDt1lSs';
-//                 request.get(url, (err, data) => {
-//                     if (err) {
-//                         return console.err(err);
-//                     }
-//                     var location = JSON.parse(data.body);
-//                     return forecast.get([location.results[0].geometry.location.lat, location.results[0].geometry.location.lng], function(err, weather) {
-//                         if (err) return console.error(err);
-//                         console.log("SUMMARY FROM WJS: ",weather.daily.summary);
-//                         say(weather.daily.summary);
-//                         // sum = weather.daily.summary;
-//                         // return weather.daily.summary;
-//                     });
-//                 });
-//             }
-//         }).then(function (summary) {
-//             console.log('summary: ' + summary);
-//             say(summary);
-//         })
-//         .catch((err) => {
-//             console.error(err);
-//         })
-// }
-
 module.exports = function(inquiry) {
     weatherClient.message(inquiry, {})
         .then((response) => {
@@ -69,7 +39,7 @@ module.exports = function(inquiry) {
             }
             else {
                 var city = response.outcomes[0].entities.location[0].value;
-                var url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + city + '&key=AIzaSyA1ALNX69MB3D4aBUtMviXIHg4MKDt1lSs';
+                var url = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + city + '&key='+config.geolocator;
                 request.get(url, (err, data) => {
                     if (err) {
                         console.log("ERRRRRROR");

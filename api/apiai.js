@@ -1,6 +1,7 @@
+const config = require('../config');
 var apiai = require('apiai');
 
-var app = apiai("ed0bba5b47094169948c0e91a2facc92");
+var app = apiai(config.apiai);
 
 var use = function(text, cb) {
     var request = app.textRequest(text, {

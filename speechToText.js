@@ -1,14 +1,15 @@
 var SpeechToTextV1 = require('watson-developer-cloud/speech-to-text/v1');
+const config = require('./config');
 var fs = require('fs');
 const nexmo = require('./create-nexmo-app');
 const wit = require('node-wit');
 var natural = require('natural');
 const sayStocks = require('./components/stocks');
 const client = new wit.Wit({
-  accessToken: 'BXATQKJ5CH56BWR67XSQJ7URAFOCCLYW'
+  accessToken: config.witStocks
 });
 const weatherClient = new wit.Wit({
-  accessToken: 'LKDBLGBHED3PUT6SV4CKMFEKKG34CL2V'
+  accessToken: config.witWeather
 })
 const translate = require("./googleTranslation");
 
